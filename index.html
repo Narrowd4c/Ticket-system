@@ -1,0 +1,126 @@
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Travel</title>
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="./dist/output.css">
+    <script src="./dist/main.js" async></script>
+</head>
+
+<body>
+<div class="container max-w-5xl mt-32 md:flex rounded-xl shadow-[0_3px_6px_0px_#00000029] py-12 xl:px-[60px] justify-center">
+  <div class="md:w-2/5 mr-8">
+    <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/js_week5/main_img.png?raw=true" alt="logo">
+    <img class="md:block hidden" src="https://github.com/hexschool/2022-web-layout-training/blob/main/js_week5/logo.png?raw=true" alt="let's Travel">
+  </div>
+  <div class="md:w-2/5">
+    <form class='flex flex-col text-primary' id='addticket' name='addticket' >
+      <h1 class="text-2xl font-medium border-b-2 border-primary mb-6">
+        <span><i class="fas fa-plus-circle mr-1.5"></i></span>新增旅遊套票
+      </h1>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-y-2">
+        <label for="ticket-name" class="w-3/12 font-medium">套票名稱</label>
+        <input class="w-full md:w-9/12 bg-zinc-50 py-2 pl-3 border-b border-primary" type="text" id="ticket-name" name='ticket-name' placeholder="請填寫套票名稱">
+      </div>
+      <div class="flex mt-1 mb-8 text-red-800 justify-end">
+          <p id="ticketName-message" class="w-full md:w-9/12 invisible" data-message="套票名稱">
+               <i class="fas fa-exclamation-circle"></i>
+                      <span>必填!</span>
+          </p>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-y-2">
+        <label for="ticket-imgURL" class="w-3/12 font-medium ">圖片網址</label>
+        <input class="w-full md:w-9/12 bg-zinc-50 py-2 pl-3 border-b border-primary" type="text" id="ticket-imgURL" name='ticket-imgURL' placeholder="請填寫圖片網址">
+      </div>
+      <div class="flex mt-1 mb-8 text-red-800 justify-end">
+          <p id="ticketName-message" class="w-full md:w-9/12 invisible" data-message="圖片網址">
+               <i class="fas fa-exclamation-circle"></i>
+                      <span>必填!</span>
+          </p>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-y-2">
+        <label for="ticket-region" class="w-3/12 font-medium ">景點地區</label>
+        <select name="ticket-area" id="ticket-area" class="w-full md:w-9/12 bg-zinc-50 py-2 pl-3 border-b border-primary text-gray-400">
+          <option class='text-black' disabled selected hidden>請選擇景點地區</option>
+          <option value="台北">台北</option>
+          <option value="台中">台中</option>
+          <option value="高雄">高雄</option>
+        </select>
+      </div>
+      <div class="flex mt-1 mb-8 text-red-800 justify-end">
+          <p id="ticketName-message" class="w-full md:w-9/12 invisible" data-message="圖片網址">
+               <i class="fas fa-exclamation-circle"></i>
+                      <span>必填!</span>
+          </p>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-y-2">
+        <label for="ticket-price" class="w-3/12 font-medium ">套票金額</label>
+        <input class="w-full md:w-9/12 bg-zinc-50 py-2 pl-3 border-b border-primary" type="number" id="ticket-price" placeholder="請填寫套票金額">
+      </div>
+      <div class="flex mt-1 mb-8 text-red-800 justify-end">
+          <p id="ticketName-message" class="w-full md:w-9/12 invisible" data-message="套票金額">
+               <i class="fas fa-exclamation-circle"></i>
+                      <span>必填!</span>
+          </p>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-y-2">
+        <label for="ticket-group" class="w-3/12 font-medium ">套票組數</label>
+        <input class="w-full md:w-9/12 bg-zinc-50 py-2 pl-3 border-b border-primary" type="number" id="ticket-group" placeholder="請填寫套票組數">
+      </div>
+      <div class="flex mt-1 mb-8 text-red-800 justify-end">
+          <p id="ticketName-message" class="w-full md:w-9/12 invisible" data-message="圖片網址">
+               <i class="fas fa-exclamation-circle"></i>
+                      <span>必填!</span>
+          </p>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-y-2">
+        <label for="ticket-rate" class="w-3/12 font-medium ">套票星級</label>
+        <input class="w-full md:w-9/12 bg-zinc-50 py-2 pl-3 border-b border-primary" type="number" id="ticket-rate" min="1" max="10" placeholder="請填寫套票星級">
+      </div>
+      <div class="flex mt-1 mb-8 text-red-800 justify-end">
+          <p id="ticketName-message" class="w-full md:w-9/12 invisible" data-message="圖片網址">
+               <i class="fas fa-exclamation-circle"></i>
+                      <span>必填!</span>
+          </p>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-y-2">
+        <label for="ticket-description" class="w-3/12 font-medium">套票描述</label>
+        <textarea  class="w-full md:w-9/12 bg-zinc-50 py-2 pl-3 border-b border-primary text-black" id="ticket-description" placeholder="請填寫套描述(限 100 字)" maxlength='100' rows='4'></textarea>
+      </div>
+      <div class="flex mt-1 mb-8 text-red-800 justify-end">
+          <p id="ticketName-message" class="w-full md:w-9/12 invisible" data-message="圖片網址">
+               <i class="fas fa-exclamation-circle"></i>
+                      <span>必填!</span>
+          </p>
+      </div>
+
+      <input type="submit" value="新增套票" class='text-xl bg-primary rounded text-white py-2.5 px-10 self-end hover:bg-primary-light cursor-pointer'>
+    </form>
+  </div>
+</div>
+
+<div class="bg-neutral-100">
+<section class="container my-16 py-12 px-5">
+  <div class='flex max-w-5xl px-12 mb-12 items-center'>
+    <select class='rounded-md w-1/3 border py-2 pl-3' data-filter-area>
+      <option disabled hidden selected>地區搜尋</option>
+      <option value="全部地區">全部地區</option>
+      <option value="台北">台北</option>
+      <option value="台中">台中</option>
+      <option value="高雄">高雄</option>
+    </select>
+    <p class='ml-[30px]'>本次搜尋共<span data-list-num>3</span>筆資料</p>
+  </div>
+  <ul data-list class="flex flex-wrap sm:flex-row flex-col gap-y-9 -mx-4">
+  </ul>
+  </div>
+</body>
+</html>
