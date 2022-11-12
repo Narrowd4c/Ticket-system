@@ -1,6 +1,7 @@
 const path = require("path"); //載入模組. path
 
 module.exports = {
+  mode: "development",
   entry: "./src/main.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -11,5 +12,23 @@ module.exports = {
 	*/
     filename: "main.js",
   },
-  
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        include: path.resolve(__dirname, "src"),
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+    ],
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    compress: true,
+    port: 9000,
+    open: true,
+    hot: true,
+    historyApiFallback: true,
+  },
 };

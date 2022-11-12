@@ -11,12 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
         integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link rel="stylesheet" href="./dist/output.css">
-    <script src="./dist/main.js" async></script>
+    <script src="./main.js" async></script>
 </head>
 
-<body>
-<div class="container max-w-5xl mt-32 md:flex rounded-xl shadow-[0_3px_6px_0px_#00000029] py-12 xl:px-[60px] justify-center">
+<body class="h-full">
+<div class="container max-w-5xl mt-32 md:flex rounded-xl shadow-[0_3px_6px_0px_#00000029] py-12 xl:px-[60px] justify-center h-full">
   <div class="md:w-2/5 mr-8">
     <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/js_week5/main_img.png?raw=true" alt="logo">
     <img class="md:block hidden" src="https://github.com/hexschool/2022-web-layout-training/blob/main/js_week5/logo.png?raw=true" alt="let's Travel">
@@ -73,7 +72,7 @@
       </div>
       <div class="flex flex-col sm:flex-row sm:items-center gap-y-2">
         <label for="ticket-group" class="w-3/12 font-medium ">套票組數</label>
-        <input class="w-full md:w-9/12 bg-zinc-50 py-2 pl-3 border-b border-primary" type="number" id="ticket-group" placeholder="請填寫套票組數">
+        <input class="w-full md:w-9/12 bg-zinc-50 py-2 pl-3 border-b border-primary" type="number" min="1" id="ticket-group" placeholder="請填寫套票組數">
       </div>
       <div class="flex mt-1 mb-8 text-red-800 justify-end">
           <p id="ticketName-message" class="w-full md:w-9/12 invisible" data-message="圖片網址">
@@ -107,20 +106,26 @@
   </div>
 </div>
 
-<div class="bg-neutral-100">
-<section class="container my-16 py-12 px-5">
+<div class="bg-neutral-100 h-full">
+<section class="container mt-16 py-12 px-5">
   <div class='flex max-w-5xl px-12 mb-12 items-center'>
-    <select class='rounded-md w-1/3 border py-2 pl-3' data-filter-area>
+    <select class='rounded-md w-1/3 min-w-[130px] border py-2 pl-3' data-filter-area>
       <option disabled hidden selected>地區搜尋</option>
       <option value="全部地區">全部地區</option>
       <option value="台北">台北</option>
       <option value="台中">台中</option>
       <option value="高雄">高雄</option>
+      <option value="飛魚灣">飛魚灣</option>
     </select>
     <p class='ml-[30px]'>本次搜尋共<span data-list-num>3</span>筆資料</p>
   </div>
   <ul data-list class="flex flex-wrap sm:flex-row flex-col gap-y-9 -mx-4">
   </ul>
-  </div>
+  <div class="mx-auto mt-16 hidden" data-not-found>
+      <h3 class="text-primary text-3xl  font-bold text-center">查無此關鍵字資料</h3>
+      <img class="mx-auto mt-12" src="https://github.com/hexschool/2022-web-layout-training/blob/main/js_week5/no_found.png?raw=true" alt="notFind" >
+    </div>
+ </section> 
+</div>
 </body>
 </html>

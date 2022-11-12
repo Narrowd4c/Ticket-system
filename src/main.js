@@ -1,3 +1,5 @@
+import "./input.css";
+
 let data = [
   {
     id: 0,
@@ -39,20 +41,20 @@ let data = [
 let addTicket = document.querySelector("#addticket");
 let list = document.querySelector("[data-list]");
 let filterArea = document.querySelector("[data-filter-area]");
-let listNum = document.querySelector('[data-list-num]')
-console.log(filterArea.value);
-filterArea.addEventListener('change', (e) => { 
-  list.innerHTML = '';
+let listNum = document.querySelector("[data-list-num]");
+let notFound = document.querySelector('[data-not-found]')
+
+filterArea.addEventListener("change", (e) => {
+  list.innerHTML = "";
   if (e.target.value === "全部地區") {
     printList(data);
-    listNum.textContent = data.length
-  } else { 
+  } else {
     let dataList = data.filter(({ area }) => area === e.target.value);
     printList(dataList);
-    listNum.textContent = dataList.length;
   }
-  
-})
+});
+
+
 function printList(data) {
   data.forEach(
     ({ id, name, imgUrl, area, description, group, price, rate }) => {
@@ -77,10 +79,21 @@ function printList(data) {
     </li>`;
     }
   );
-};
-let areaTest = ['台北', '台中', '高雄'];
+  
+
+  listNum.textContent = data.length;
+  if (data.length === 0) {
+    notFound.classList.remove('hidden');
+  } else if(data.length >=1 ){ 
+    notFound.classList.add('hidden');
+  };
+}
+
+
+let areaTest = ["台北", "台中", "高雄"];
 printList(data);
-let alertMessage = document.querySelectorAll('[data-message]')
+
+let alertMessage = document.querySelectorAll("[data-message]");
 addTicket.addEventListener("submit", (e) => {
   e.preventDefault();
   let dataObj = {
@@ -113,22 +126,18 @@ addTicket.addEventListener("submit", (e) => {
         ? e.target["ticket-rate"]?.value
         : false,
   };
-  
+
   let values = Object.values(dataObj).slice(1);
-  alertMessage.forEach((item, i, arr) => { 
-    console.log(values[i])
+  alertMessage.forEach((item, i) => {
+    console.log(values[i]);
     values[i] === false
       ? item.classList.remove("invisible")
       : item.classList.add("invisible");
-  })
-  if (values.every(x=> x)) {
+  });
+  if (values.every((x) => x)) {
     data.push(dataObj);
     list.innerHTML = "";
     printList(data);
     e.target.reset();
   }
 });
-
-
-
-
