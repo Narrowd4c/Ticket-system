@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
         integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <script src="./main.js" defer></script>
+    
 </head>
 
 <body class="h-full">
@@ -108,8 +109,9 @@
 
 <div class="bg-neutral-100 h-full">
 <section class="container mt-16 py-12 px-5">
-  <div class='flex max-w-5xl px-12 mb-12 items-center'>
-    <select class='rounded-md w-1/3 min-w-[130px] border py-2 pl-3' data-filter-area>
+  <div class="flex justify-between mb-10 sm:px-12 items-start">
+  <div class='flex gap-x-7 max-w-5xl  mb-12 items-center grow'>
+    <select class=' rounded-md w-1/3 min-w-[130px] border py-2 pl-3' data-filter-area>
       <option disabled hidden selected>地區搜尋</option>
       <option value="全部地區">全部地區</option>
       <option value="台北">台北</option>
@@ -117,7 +119,9 @@
       <option value="高雄">高雄</option>
       <option value="飛魚灣">飛魚灣</option>
     </select>
-    <p class='ml-[30px]'>本次搜尋共<span data-list-num>3</span>筆資料</p>
+    <p class=''>本次搜尋共<span data-list-num></span>筆資料</p>
+  </div>
+  <div id="chart" class="w-[200px] h-[200px] text-xs"></div>
   </div>
   <ul data-list class="flex flex-wrap sm:flex-row flex-col gap-y-9 -mx-4">
   </ul>
@@ -127,5 +131,7 @@
     </div>
  </section> 
 </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.js"></script>
 </body>
 </html>

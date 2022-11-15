@@ -55,6 +55,19 @@ async function getAPI() {
   }
 };   
 
+function chart(data) { 
+  let area = data.reduce((pre, { area}) => {
+    if (area in pre) {
+      pre[area]++
+    } else { 
+      pre[area] = 1
+    }
+    return pre
+  }, {})
+  chartDount.load({ columns: Object.entries(area) });
+  return area
+}
+
 getAPI().then(({ data: { data } }) => { 
   //初始化
   printList(data);
@@ -91,7 +104,7 @@ getAPI().then(({ data: { data } }) => {
           ? e.target["ticket-rate"]?.value
           : false,
     };
-
+    
     let values = Object.values(dataObj).slice(1);
     alertMessage.forEach((item, i) => {
       values[i] === false
@@ -104,6 +117,7 @@ getAPI().then(({ data: { data } }) => {
       printList(data);
       e.target.reset();
     }
+    chart(data);
   });
   // //篩選地區
   filterArea.addEventListener("change", (e) => {
@@ -115,9 +129,40 @@ getAPI().then(({ data: { data } }) => {
       printList(dataList);
     }
   });
+  
 }); 
 
+//https://c3js.org/reference.html#donut-label-show
+const chartDount = c3.generate({
+  bindto: "#chart",
+  data: {
+    columns: [
+      ["台北", 1],
+      ["台中", 1],
+      ["高雄", 1],
+    ],
+    type: "donut",
+  },
+  donut: {
+    title: "套票地區比重",
+    label: {
+      show: false,
+    },
+    // threshold: 0.01,
+    // expand: false,
+    // padAngle: 0.01,
+    width: 10,
+  },
+  // size: {
+  //   height: 200, default : auto
+  //   width: 200,
+  // },
+  color: {
+    pattern: ["#26C0C7", "#5151D3", "#E68618"],
+  },
+});
 
+//console.log(chartDount)
 
 
 
