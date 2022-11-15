@@ -10,7 +10,6 @@ let areaTest = ["台北", "台中", "高雄"];
 let alertMessage = document.querySelectorAll("[data-message]");
 
 
-
 function printList(data) {
   data.forEach(
     ({ id, name, imgUrl, area, description, group, price, rate }) => {
@@ -44,16 +43,35 @@ function printList(data) {
   }
 }
 
-async function getAPI() { 
-  let ticketUrl =
-    "https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json";
-  try {
-    let res = await axios.get(ticketUrl); 
-    return res
-  } catch(error) { 
-    console.error(error)
-  }
-};   
+const chartDount = c3.generate({
+  //https://c3js.org/reference.html#donut-label-show
+  bindto: "#chart",
+  data: {
+    columns: [
+      ["台北", 1],
+      ["台中", 1],
+      ["高雄", 1],
+    ],
+    type: "donut",
+  },
+  donut: {
+    title: "套票地區比重",
+    label: {
+      show: false,
+    },
+    // threshold: 0.01,
+    // expand: false,
+    // padAngle: 0.01,
+    width: 10,
+  },
+  // size: {
+  //   height: 200, default : auto
+  //   width: 200,
+  // },
+  color: {
+    pattern: ["#26C0C7", "#5151D3", "#E68618"],
+  },
+});
 
 function chart(data) { 
   let area = data.reduce((pre, { area}) => {
@@ -67,6 +85,17 @@ function chart(data) {
   chartDount.load({ columns: Object.entries(area) });
   return area
 }
+
+async function getAPI() { 
+  let ticketUrl =
+    "https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json";
+  try {
+    let res = await axios.get(ticketUrl); 
+    return res
+  } catch(error) { 
+    console.error(error)
+  }
+};   
 
 getAPI().then(({ data: { data } }) => { 
   //初始化
@@ -131,38 +160,6 @@ getAPI().then(({ data: { data } }) => {
   });
   
 }); 
-
-//https://c3js.org/reference.html#donut-label-show
-const chartDount = c3.generate({
-  bindto: "#chart",
-  data: {
-    columns: [
-      ["台北", 1],
-      ["台中", 1],
-      ["高雄", 1],
-    ],
-    type: "donut",
-  },
-  donut: {
-    title: "套票地區比重",
-    label: {
-      show: false,
-    },
-    // threshold: 0.01,
-    // expand: false,
-    // padAngle: 0.01,
-    width: 10,
-  },
-  // size: {
-  //   height: 200, default : auto
-  //   width: 200,
-  // },
-  color: {
-    pattern: ["#26C0C7", "#5151D3", "#E68618"],
-  },
-});
-
-//console.log(chartDount)
 
 
 
