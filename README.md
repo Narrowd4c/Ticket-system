@@ -2,7 +2,7 @@
 
 [Demo](https://narrowd4c.github.io/Ticket-system/dist/index.html)
 
-#### 用原生 JavaScript 製作套票新增與搜尋功能
+#### 用原生 JavaScript 製作新增與搜尋功能
 #### 使用
   + tailwind.css 切版
   + webpack 壓縮打包檔案  
