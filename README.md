@@ -1,6 +1,8 @@
 # Ticket-system
 
-[Demo](https://narrowd4c.github.io/Ticket-system/dist/index.html)
+<img src="https://i.imgur.com/51bpI75.png" alt="封面" width="600"/>  
+
+[頁面](https://narrowd4c.github.io/Ticket-system/dist/index.html)
 
 #### 以原生 JavaScript 製作新增與搜尋功能
 #### 使用
