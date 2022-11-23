@@ -6,7 +6,7 @@
 
 #### 以原生 JavaScript 製作新增與搜尋功能
 
-## 參考
+## 使用和參考
 ### Tailwind.css 切版  
 
 - 參考 [Tailwind 官網](https://tailwindcss.com/)
