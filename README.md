@@ -30,5 +30,5 @@
      - 參考的資料有點不合時宜，結合 Tailwind.css 使用 DevServe 重新渲染時間太久，圖片沒使用 assetModule 去載入
      - 改進方向 : 語法認識太少，可參考其他 webpack 如何設定
  2. Tailwind : 
-     - 熟練度不足，使用太多自訂class ` -[] `，而不是修改設定檔。會誤用 BootStrap5 語法
+     - 熟練度不足，使用太多自訂class，而不是修改設定檔。會誤用 BootStrap5 語法
      - 改進方向 : 提升熟練度
