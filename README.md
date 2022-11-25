@@ -25,7 +25,7 @@
 
  - 參考[來吧！用 git-cz 讓你的 Git Commit 訊息更美一點！](https://israynotarray.com/git/20221115/721294310/?fbclid=IwAR2Iqw4H1H6quWIUi7FzRV9a11OUxhA_CydlVOQJ9Zu8CAw9HDn6XGkg7ZM)
 
-## 反省
+## 感想
  1. Webpack : 
      - 參考的資料有點不合時宜，結合 Tailwind.css 使用 DevServe 重新渲染時間太久，圖片沒使用 assetModule 去載入
      - 改進方向 : 語法認識太少，可參考其他 webpack 如何設定
